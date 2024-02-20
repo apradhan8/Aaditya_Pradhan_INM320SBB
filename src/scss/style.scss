@@ -1,0 +1,325 @@
+// Colors
+$color_1: #111111;
+$color_2: #324360;
+$color_3: #989898;
+
+//Font families
+$font-quando: 'Quando';
+$font-josefin: 'Josefin Sans', sans-serif;
+$font-fontawesome: 'FontAwesome';
+
+// Mixins
+@mixin font($size, $weight: 400, $color, $family: $font-quando) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    font-family: $family;
+}
+
+@mixin transition($property, $duration: .3s, $timing-function: ease) {
+    transition: $property $duration $timing-function;
+}
+
+body {
+    @include font(15px, 400, #787878, $font-quando);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin-bottom: 25px;
+    line-height: 1.6em;
+}
+
+a {
+
+    font-weight: 400;
+    text-decoration: none;
+    color: $color_1;
+    transition: .20s;
+
+    &:hover {
+        color: #999999;
+    }
+}
+
+h1 {
+    @include font(37px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+h2 {
+    @include font(31px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+h3 {
+    @include font(26px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+h4 {
+    @include font(21px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+h5 {
+    @include font(18px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+h6 {
+    @include font(15px, 400, $color_1, $font-josefin);
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+.container {
+    width: 94%;
+    margin: 0 auto;
+}
+
+header {
+    font-family: $font-josefin;
+
+    nav {
+        ul {
+            display: none;
+        }
+    }
+}
+
+.top-logo {
+    width: 200px;
+    margin: 20px auto 40px;
+}
+
+article {
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-part {
+    margin-bottom: 10px;
+}
+
+.post-title {
+    margin-top: 0;
+
+    a {
+        @include font(26px, 900, $color_2, $font-josefin);
+        text-transform: uppercase;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        line-height: 1.3em;
+        @include transition(all, .3s, ease);
+
+        &:hover {
+            color: #35c4ce;
+        }
+    }
+}
+
+footer {
+    padding: 30px 0;
+    text-align: center;
+    background: #eaf2ff;
+    color: $color_3;
+}
+
+#footer {
+    a {
+        color: $color_3;
+
+        &:hover {
+            color: $color_1;
+        }
+    }
+}
+
+.footer-logo {
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer-social-links {
+    padding: 20px 0;
+    line-height: 2em;
+
+    a {
+        margin: 0 10px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        span {
+            display: none;
+        }
+    }
+}
+
+#footer-copyright {
+    padding: 20px 0;
+    font-size: 12px;
+    color: $color_3;
+}
+
+@media only screen and (min-width: 650px) {
+    .container {
+        width: 90%;
+    }
+
+    header {
+        nav {
+            max-width: 1170px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+
+            ul {
+                display: flex;
+
+                ul {
+                    visibility: hidden;
+                    opacity: 0;
+                    display: block;
+                    position: absolute;
+                    z-index: 9999;
+                    left: 0;
+                    background: #f0f0f0;
+                    @include transition(all, .2s, ease-out);
+
+                    li {
+                        border-top: 1px solid #e9e9e9;
+                        margin: 0;
+                    }
+
+                    a {
+                        display: block;
+                        color: $color_1;
+                        min-width: 175px;
+                        margin: 0;
+                        padding: 20px 10px;
+                        line-height: 1.4em;
+                        letter-spacing: 1px;
+                        @include transition(all, .35s, ease-in-out);
+
+                        &:hover {
+                            background: #ffffff;
+                            color: #000;
+                        }
+                    }
+                }
+
+                li {
+                    &:hover {
+                        ul {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            li {
+                margin: 0 15px;
+                position: relative;
+                line-height: 24px;
+            }
+
+            a {
+                font-family: $font-josefin;
+                color: $color_2;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 900;
+
+                &:hover {
+                    color: #35c4ce;
+                }
+            }
+
+            li.menu-item-has-children {
+                >a {
+                    &::after {
+                        margin-left: 7px;
+                        font-family: $font-fontawesome;
+                        font-size: 13px;
+                        color: $color_2;
+                        content: '\f078';
+                    }
+                }
+            }
+        }
+    }
+
+    .current-menu-item {
+        a {
+            border-bottom: 2px solid #324360;
+        }
+    }
+
+    article {
+        display: flex;
+    }
+
+    .image-part {
+        flex: 1;
+        overflow: hidden;
+        margin-bottom: 0;
+
+        img {
+            @include transition(transform, 3.5s, ease-in-out);
+
+            &:hover {
+                transform: scale(1.5, 1.5);
+            }
+        }
+    }
+
+    .content-part {
+        flex: 1;
+        padding-left: 50px;
+    }
+
+    .footer-social-links {
+        a {
+            margin: 0 28px;
+
+            span {
+                display: inline;
+                font-size: 11px;
+            }
+        }
+
+        i {
+            margin-right: 5px;
+        }
+    }
+}
